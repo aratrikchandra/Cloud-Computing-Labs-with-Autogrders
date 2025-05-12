@@ -1,0 +1,6 @@
+{
+    "ACCESS_KEY_ID": "INSTRUCTOR Access key ID",
+    "SECRET_ACCESS_KEY": "INSTRUCTOR Secret Access Key",
+    "region": "region-name",
+    "policy-arn" : "your-policy-arn"
+}

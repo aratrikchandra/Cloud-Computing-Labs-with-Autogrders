@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "testid": "Photo Upload Check",
+            "status": "success",
+            "score": 1,
+            "maximum marks": 1,
+            "message": "Image uploaded successfully"
+        },
+        {
+            "testid": "S3 Bucket Check",
+            "status": "success",
+            "score": 1,
+            "maximum marks": 1,
+            "message": "Bucket Checked Successfully"
+        },
+        {
+            "testid": "Label Bucket Check",
+            "status": "success",
+            "score": 1,
+            "maximum marks": 1,
+            "message": "Label Bucket Checked Successfully"
+        },
+        {
+            "testid": "Lambda Trigger Check",
+            "status": "success",
+            "score": 1,
+            "maximum marks": 1,
+            "message": "Lambda Trigger Checked Successfully"
+        }
+    ]
+}

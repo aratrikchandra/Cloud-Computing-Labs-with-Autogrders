@@ -1,0 +1,51 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "S3AllowedPolicy",
+      // write you code here
+    },
+    {
+      "Sid": "S3DeniedPolicy",
+      // write you code here
+    },
+    {
+      "Sid": "LambdaAllowedPolicy",
+    // write you code here
+    },
+    {
+      "Sid": "LambdaDeniedPolicy",
+      // write you code here
+    },
+    {
+      "Sid": "LoadBalancerAllowedPolicy",
+      // write you code here
+    },
+    {
+      "Sid": "LoadBalancerDeniedPolicy",
+      // write you code here
+    },
+    {
+      "Sid": "CloudWatchAllowedPolicy",
+      // write you code here
+    },
+    {
+      "Sid": "CloudWatchDeniedPolicy",
+      // write you code here
+    },
+    {
+      "Sid": "EC2AllowedPolicy",
+      // write you code here
+    },
+    {
+      "Sid": "EC2DeniedPolicy",
+      // write you code here
+    },
+    {
+      "Sid": "IAMFullAccessPolicy",
+      "Effect": "Allow",
+      "Action": "iam:*",
+      "Resource": "*"
+    }
+  ]
+}

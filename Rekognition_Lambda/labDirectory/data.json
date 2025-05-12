@@ -1,0 +1,10 @@
+{
+    "public_ip": "",
+    "port" : "",
+    "INSTRUCTOR Access key ID" : "",
+    "INSTRUCTOR Secret Access Key" : "",
+    "source s3 bucket name" : "", 
+    "Lambda Function Name" : "",
+    "labels s3 bucket name" : "",
+    "Region" : ""
+}

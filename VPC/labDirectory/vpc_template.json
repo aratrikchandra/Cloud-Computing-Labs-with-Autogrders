@@ -1,0 +1,189 @@
+{
+  "Description": "Creation of VPC",
+  "Mappings": {
+    "AWSRegionToAMI": {
+      "<Fill here>": {
+        "AMI": "ami-013a129d325529d4d"
+      }
+    }
+  },
+  "Resources": {
+    "VPC": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "CidrBlock": "<Fill here>",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "aws-vpc"
+          }
+        ]
+      }
+    },
+    "InternetGateway": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "aws-igw"
+          }
+        ]
+      }
+    },
+    "AttachGateway": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "VpcId": {
+          "Ref": "<Fill here>"
+        },
+        "InternetGatewayId": {
+          "Ref" : "<Fill here>"
+        }
+      }
+    },
+    "PublicSubnet1": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "AvailabilityZone": {
+          "Fn::Select": [
+            "0",
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "<Fill here>",
+        "VpcId": {
+          "Ref": "<Fill here>"
+        },
+        "MapPublicIpOnLaunch": "<Fill here>",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "subnet-public-a"
+          }
+        ]
+      }
+    },
+    "PublicSubnet2": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "AvailabilityZone": {
+          "Fn::Select": [
+            "1",
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "<Fill here>",
+        "VpcId": {
+          "Ref": "<Fill here>"
+        },
+        "MapPublicIpOnLaunch": "<Fill here>",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "subnet-public-b"
+          }
+        ]
+      }
+    },
+    "PublicRouteTable": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "VpcId": {
+          "Ref": "<Fill here>"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "routetable-public"
+          }
+        ]
+      }
+    },
+    "PublicDefaultRoute": {
+      "Type": "<Fill here>",
+      "DependsOn": "AttachGateway",
+      "Properties": {
+        "DestinationCidrBlock": "<Fill here>",
+        "GatewayId": {
+          "Ref": "<Fill here>"
+        },
+        "RouteTableId": {
+          "Ref": "<Fill here>"
+        }
+      }
+    },
+    "PublicRouteAssociation1": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "<Fill here>"
+        },
+        "SubnetId": {
+          "Ref": "<Fill here>"
+        }
+      }
+    },
+    "PublicRouteAssociation2": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "<Fill here>"
+        },
+        "SubnetId": {
+          "Ref": "<Fill here>"
+        }
+      }
+    },
+    "PrivateSubnet1": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "AvailabilityZone": {
+          "Fn::Select": [
+            "0",
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "<Fill here>",
+        "VpcId": {
+          "Ref": "<Fill here>"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "subnet-private-a"
+          }
+        ]
+      }
+    },
+    "PrivateSubnet2": {
+      "Type": "<Fill here>",
+      "Properties": {
+        "AvailabilityZone": {
+          "Fn::Select": [
+            "1",
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "<Fill here>",
+        "VpcId": {
+          "Ref": "<Fill here>"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "subnet-private-b"
+          }
+        ]
+      }
+    }
+  }
+}

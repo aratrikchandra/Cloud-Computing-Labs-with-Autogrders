@@ -1,0 +1,36 @@
+#!/bin/bash -ex 
+
+#Install the pip package. pip is used to install and maintain packages for Python.
+sudo yum update -y
+sudo yum -y install python-pip
+
+#Using pip install the flask web framework library
+sudo pip install flask
+
+#Requests is a simple HTTP library; helps send HTTP requests easily
+sudo pip install requests
+
+# A directory is created and entered to save relevant python script
+mkdir FlaskWebServer
+cd FlaskWebServer
+
+# A file flaskApp.py is created and all text until EOF is copied into it
+# First a flask instance is created via app = Flask(.... 
+# App routing is used to map the specific URL (“/” in this case) with the associated function (main) 
+# main function prints some info about the instance along with welcome message
+# If this file is called directly by the python interpreter, it asks to run the app locally on port 80
+sudo cat >> flaskApp.py << EOF
+from flask import Flask
+import requests
+app = Flask(__name__)
+@app.route("/")
+def main():
+  r = requests.get('http://169.254.169.254/latest/dynamic/instance-identity/document')
+  text = "Welcome! Here is some info about me!\n\n" + r.text
+  return text
+if __name__ == "__main__":
+  app.run(host='0.0.0.0', port=80)
+EOF
+
+# The above created file is run by invoking python interpreter
+sudo python flaskApp.py
